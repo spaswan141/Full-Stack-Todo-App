@@ -9,7 +9,6 @@ import PasswordReset from "../pages/PasswordReset";
 
 const MainRoute = () => {
   const token = JSON.parse(localStorage.getItem("token"))
-  console.log(token)
   return (
     <div>
       <Routes>
