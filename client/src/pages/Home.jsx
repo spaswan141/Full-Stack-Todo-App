@@ -15,7 +15,7 @@ const Home = () => {
   const token=JSON.parse(localStorage.getItem("token"))
   const getAllToDo = async () => {
     axios
-      .get(`http://localhost:8080/todo/todos`, {
+      .get(`https://shubhampaswantodoapp.onrender.com/todo/todos`, {
         headers: {
           Authorization:
          token,
@@ -34,7 +34,7 @@ const Home = () => {
       text: text,
     };
     axios
-      .put(`http://localhost:8080/todo/update/${id}`, payload, {
+      .put(`https://shubhampaswantodoapp.onrender.com/todo/update/${id}`, payload, {
         headers: {
           "content-type": "application/json",
           Authorization:
@@ -60,7 +60,7 @@ const Home = () => {
   };
   const deleteToDo = (id) => {
     axios
-      .delete(`http://localhost:8080/todo/delete/${id}`,{
+      .delete(`https://shubhampaswantodoapp.onrender.com/todo/delete/${id}`,{
         headers: {
           "content-type": "application/json",
           Authorization:
@@ -79,7 +79,7 @@ const Home = () => {
       text: text,
     };
     axios
-      .post(`http://localhost:8080/todo/create-todo`, payload, {
+      .post(`https://shubhampaswantodoapp.onrender.com/todo/create-todo`, payload, {
         headers: {
           "content-type": "application/json",
           Authorization:

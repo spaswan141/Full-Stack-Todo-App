@@ -9,7 +9,7 @@ const Navbar = () => {
 
   useEffect(()=>{
     const token=JSON.parse(localStorage.getItem("token"))
-    axios.get(`http://localhost:8080/user`,{
+    axios.get(`https://shubhampaswantodoapp.onrender.com/user`,{
       headers: {
         "content-type": "application/json",
         Authorization:token,

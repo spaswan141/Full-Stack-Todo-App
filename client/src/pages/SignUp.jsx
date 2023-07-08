@@ -59,7 +59,7 @@ const Signup = () => {
         age: age,
 
       };
-      axios.post("http://localhost:8080/user/signup", payload).then((response) => {
+      axios.post("https://shubhampaswantodoapp.onrender.com/user/signup", payload).then((response) => {
         if(response.data.code===201){
           notification["success"]({
             message: "Signup successfully",

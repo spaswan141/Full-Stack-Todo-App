@@ -55,7 +55,7 @@ const ForgotPassword = () => {
       email: email,
     };
     axios
-      .post("http://localhost:8080/user/sentLink", payload)
+      .post("https://shubhampaswantodoapp.onrender.com/user/sentLink", payload)
       .then((response) => {
         console.log(response,"response")
         if(response.status===200){
