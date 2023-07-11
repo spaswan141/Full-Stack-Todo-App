@@ -124,8 +124,9 @@ module.exports.newPassword = async function (req,res) {
     if (!token) return res.status(400).send({ message: "Invalid link" });
 
     if (!user.verified) user.verified = true;
-
+    console.log(user.password)  
     req.body.password = passwordHash.generate(req.body.password);
+    console.log(req.body.password)
     await UserModel.findOneAndUpdate({ _id: user._id }, { password: req.body.password },{new:true});
 
     res.status(200).send({ message: "Password reset successfully" });
