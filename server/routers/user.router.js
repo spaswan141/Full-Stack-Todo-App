@@ -7,5 +7,5 @@ router.post('/login',loginUser)
 router.get("/",users)
 router.post("/sentLink",sendPasswordlink)
 router.post("/reset-password/:id/:token",newPassword)
-//router.get("/reset-password/:id/:token",verifyLink)
+router.get("/reset-password/:id/:token",verifyLink)
 module.exports=router
