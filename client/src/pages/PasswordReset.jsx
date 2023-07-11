@@ -53,12 +53,12 @@ const PasswordReset = () => {
 	const [msg, setMsg] = useState("");
 	const [error, setError] = useState("");
 	const param = useParams();
-	const url = `https://shubhampaswantodoapp.onrender.com/reset-password/${param.id}/${param.token}`;
+	const url = `https://shubhampaswantodoapp.onrender.com/user/reset-password/${param.id}/${param.token}`;
 
 	useEffect(() => {
 		const verifyUrl = async () => {
 			try {
-				await axios.post(url);
+				await axios.get(url);
 				setValidUrl(true);
 			} catch (error) {
 				setValidUrl(false);

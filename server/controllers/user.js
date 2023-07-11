@@ -115,6 +115,7 @@ module.exports.verifyLink = async function (req, res) {
 module.exports.newPassword = async function (req,res) {
   try {
     const user = await UserModel.findOne({ _id: req.params.id });
+
     if (!user) return res.status(400).send({ message: "Invalid link" });
 
     const token = await TokenModel.findOne({
@@ -122,12 +123,10 @@ module.exports.newPassword = async function (req,res) {
       token: req.params.token,
     });
     if (!token) return res.status(400).send({ message: "Invalid link" });
-
-    if (!user.verified) user.verified = true;
-    console.log(user.password)  
+    
     req.body.password = passwordHash.generate(req.body.password);
-    console.log(req.body.password)
     await UserModel.findOneAndUpdate({ _id: user._id }, { password: req.body.password },{new:true});
+    const newuser = await UserModel.findOne({ _id: req.params.id });
 
     res.status(200).send({ message: "Password reset successfully" });
   } catch (error) {
